@@ -1,5 +1,14 @@
 # springboot-script
 
+```
+███████╗██████╗ ██████╗ ██╗███╗   ██╗ ██████╗ ██████╗  ██████╗  ██████╗ ████████╗   ███████╗ ██████╗██████╗ ██╗██████╗ ████████╗
+██╔════╝██╔══██╗██╔══██╗██║████╗  ██║██╔════╝ ██╔══██╗██╔═══██╗██╔═══██╗╚══██╔══╝   ██╔════╝██╔════╝██╔══██╗██║██╔══██╗╚══██╔══╝
+███████╗██████╔╝██████╔╝██║██╔██╗ ██║██║  ███╗██████╔╝██║   ██║██║   ██║   ██║█████╗███████╗██║     ██████╔╝██║██████╔╝   ██║
+╚════██║██╔═══╝ ██╔══██╗██║██║╚██╗██║██║   ██║██╔══██╗██║   ██║██║   ██║   ██║╚════╝╚════██║██║     ██╔══██╗██║██╔═══╝    ██║
+███████║██║     ██║  ██║██║██║ ╚████║╚██████╔╝██████╔╝╚██████╔╝╚██████╔╝   ██║      ███████║╚██████╗██║  ██║██║██║        ██║
+╚══════╝╚═╝     ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═════╝  ╚═════╝  ╚═════╝    ╚═╝      ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝╚═╝        ╚═╝
+```
+
 ## 授权
 
 chmod 777 run_xxx.sh
@@ -133,3 +142,34 @@ rm -rf xxx.pid
 </dependencySets>
 <baseDirectory>demo1</baseDirectory>
 ```
+
+
+---
+
+## 设置 `banner`
+
+`resources/banner.txt`
+
+http://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow&t=springboot-script
+
+---
+
+## 外部 `tomcat`
+
+```java
+public class ServletInitializer extends SpringBootServletInitializer {
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(Demo2Application.class);
+    }
+}
+```
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-tomcat</artifactId>
+    <scope>provided</scope>
+</dependency>
+```
+
