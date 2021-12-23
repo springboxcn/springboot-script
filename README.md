@@ -26,6 +26,17 @@ JAVA_OPTS="-Xms128m -Xmx256m"
 
 echo "xxx on...."
 
+JAR_PATH="xxx.jar"
+
+if [ $1 == "" ]
+then
+  echo "JAR_PATH is not set!"
+else 
+  echo "JAR_PATH is set $1!"
+  JAR_PATH=$1
+fi
+
+
 if find -name xxx.pid | grep "xxx.pid";
 
 then
@@ -36,7 +47,7 @@ then
   
 fi
 
-nohup java $JAVA_OPTS -jar xxx-1.0-SNAPSHOT.jar >  output 2>&1 &
+nohup java $JAVA_OPTS -jar $JAR_PATH >  output 2>&1 &
 
 if [ ! -z "xxx.pid" ]; then
 
